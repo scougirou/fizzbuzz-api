@@ -62,6 +62,8 @@ Nest is [MIT licensed](LICENSE).
 
 ## TODO / improvements
 - Split the fizzbuzz DTO, one for the controller validation, the other to be used in the service / rest of the app.
+- Perf: optimise the fizzbuzz string concatenation
+
 ## Considerations / Discussions
 
 We do not check if the integer is larger than the limit (ex: integer1 = 50, limit = 10).

@@ -6,6 +6,7 @@ import {
   MAXIMUM_LIMIT,
   MINIMUM_INTEGER,
 } from '../controllers/dto/fizzbuzz.dto';
+import { StatisticsService } from '../../statistics/services/statistics.service';
 
 interface MultiplierInterface {
   multiplierInteger: number;
@@ -14,9 +15,16 @@ interface MultiplierInterface {
 
 @Injectable()
 export class FizzbuzzService {
+  constructor(private readonly statsService: StatisticsService) {}
+
   generateFizzbuzz(input2: FizzbuzzDto): string {
     let result = '';
     const input = this.validateInput(input2);
+
+    // Log the input in the stat service
+    // The returned promise is deliberately ignored: do not block the main computation
+    // for logging purposes
+    this.statsService.logUsage(input);
 
     // Prepare a multiplier object, avoid computing it in each loop iteration
     const multiplier: MultiplierInterface = {
