@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
-
-export interface FizzbuzzDto {
-  integer1: number;
-  integer2: number;
-  limit: number;
-  replacement1: string;
-  replacement2: string;
-}
+import {
+  DEFAULT_INTEGER,
+  DEFAULT_LIMIT,
+  FizzbuzzDto,
+  MAXIMUM_LIMIT,
+  MINIMUM_INTEGER,
+} from '../controllers/dto/fizzbuzz.dto';
 
 interface MultiplierInterface {
   multiplierInteger: number;
@@ -19,11 +18,13 @@ export class FizzbuzzService {
     let result = '';
     const input = this.validateInput(input2);
 
+    // Prepare a multiplier object, avoid computing it in each loop iteration
     const multiplier: MultiplierInterface = {
       multiplierInteger: input.integer1 * input.integer2,
       multiplierReplacement: input.replacement1 + input.replacement2,
     };
 
+    // Main loop
     for (let i = 1; i < input.limit + 1; i++) {
       const value = this.generateValue(i, input, multiplier);
       result = this.appendValue(i, result, value);
@@ -32,16 +33,27 @@ export class FizzbuzzService {
     return result;
   }
 
+  /**
+   * validateInput will normalize the input
+   * and replace any parameter the would break the computation by it's default value.
+   * if
+   * @param input
+   * @private
+   */
   private validateInput(input: FizzbuzzDto): FizzbuzzDto {
     const validatedInput: FizzbuzzDto = input;
-    if (!input.integer1) {
-      validatedInput.integer1 = 0;
+    if (!input.integer1 || input.integer1 < MINIMUM_INTEGER) {
+      validatedInput.integer1 = DEFAULT_INTEGER;
     }
-    if (!input.integer2) {
-      validatedInput.integer2 = 0;
+    if (!input.integer2 || input.integer2 < MINIMUM_INTEGER) {
+      validatedInput.integer2 = DEFAULT_INTEGER;
     }
-    if (!input.limit) {
-      validatedInput.limit = 100;
+    if (
+      !input.limit ||
+      input.limit < MINIMUM_INTEGER ||
+      input.limit > MAXIMUM_LIMIT
+    ) {
+      validatedInput.limit = DEFAULT_LIMIT;
     }
     if (!input.replacement1) {
       validatedInput.replacement1 = '';
