@@ -13,7 +13,7 @@ RUN yarn add rimraf
 
 RUN yarn run build
 
-FROM node:14.17-alpine as production
+FROM node:14.17-alpine as release
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -24,7 +24,7 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --only=production
 
-COPY docker/server .
+COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
 
