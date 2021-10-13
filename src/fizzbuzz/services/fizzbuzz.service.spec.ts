@@ -1,13 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FizzbuzzService } from './fizzbuzz.service';
 import { FizzbuzzDto } from '../controllers/dto/fizzbuzz.dto';
+import { StatisticsService } from '../../statistics/services/statistics.service';
 
-describe('ServicesService', () => {
+describe('FizzbuzzService', () => {
   let service: FizzbuzzService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [FizzbuzzService],
+      providers: [
+        FizzbuzzService,
+        {
+          provide: StatisticsService,
+          useValue: {
+            logUsage: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
     service = module.get<FizzbuzzService>(FizzbuzzService);
