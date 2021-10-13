@@ -27,3 +27,9 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Coverage
+        run: npm run test:cov:ci
+        uses: artiomtr/jest-coverage-report-action@v2.0-rc.5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
