@@ -60,7 +60,35 @@ $ npm run test:cov
 
 Nest is [MIT licensed](LICENSE).
 
-## TODO / improvements
+## How to use it
+
+Launch docker compose
+Api is accessible on https://localhost:3000
+
+## Current implementation
+
+This project has been implemented with NestJS, version 8.01.
+
+
+
+## TODO
+- done: ~~Implement fizzbuzz controller~~
+- done: ~~Implement fizzbuzz service tests~~
+- done: ~~Implement fizzbuzz service~~
+- done: ~~Add swagger~~
+- done: ~~Implement stat controller~~
+- done: ~~Implement stat service tests~~
+- done: ~~Implement stat service~~
+- done: ~~Dockerize build~~
+- Setup CI, run build and tests
+- Implement e2e testing / controller testing
+- Add code coverage report
+- Add benchmark capabilities
+- Add redis as an optional stat service
+- Add selfsigned certificates
+- Add cors whitelist
+
+## Improvements / Nice to have
 - Split the fizzbuzz DTO, one for the controller validation, the other to be used in the service / rest of the app.
 - Perf: optimise the fizzbuzz string concatenation
 
