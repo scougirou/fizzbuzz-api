@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 const PORT = 3000;
+const HOST = 'localhost';
+const SCHEME = 'http';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -17,7 +19,9 @@ async function bootstrap(): Promise<void> {
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(PORT).then(() => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(
+      `App listening on port ${PORT}, swagger available on ${SCHEME}://${HOST}:3000/swagger`,
+    );
   });
 }
 bootstrap();
