@@ -6,7 +6,7 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --only=development
 
-COPY . .
+COPY docker/server .
 
 # Install rimraf, needed by the build prestep
 RUN yarn add rimraf
@@ -24,7 +24,7 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --only=production
 
-COPY . .
+COPY docker/server .
 
 COPY --from=development /usr/src/app/dist ./dist
 
