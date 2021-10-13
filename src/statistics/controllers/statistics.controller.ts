@@ -12,10 +12,14 @@ export class StatisticsController {
     @Res({ passthrough: true }) res: Response,
   ): MostUsedQueryDto | void {
     const result = this.statsService.getMostUsedQuery();
+
+    // Send a 204 "No content" if no stats are available
     if (!result) {
       res.status(HttpStatus.NO_CONTENT);
+
       return;
     }
+
     return result;
   }
 }
