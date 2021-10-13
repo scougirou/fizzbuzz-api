@@ -1,11 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { FizzbuzzDto } from '../../fizzbuzz/controllers/dto/fizzbuzz.dto';
 import { MostUsedQueryDto } from '../controllers/dto/most-used-query.dto';
-import {
-  ClassTransformer,
-  plainToClass,
-  plainToClassFromExist,
-} from 'class-transformer';
+import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class StatisticsService {
