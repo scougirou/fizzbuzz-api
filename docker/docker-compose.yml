@@ -25,31 +25,32 @@ services:
       - ./server.env
     command: npx yarn start:dev
 
-  grafana:
-    image: grafana/grafana:7.5.5
-    volumes:
-      - ./config/grafana/datasources:/etc/grafana/provisioning/datasources
-      - ./config/grafana/dashboards:/etc/grafana/provisioning/dashboards
-    environment:
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_AUTH_DISABLE_LOGIN_FORM=true
-    ports:
-      - "9990:3000"
-    depends_on:
-      - prometheus
-    networks:
-      - monitoring
-
   prometheus:
     image: prom/prometheus:v2.26.0
     volumes:
       - ./config/prometheus/prometheus-local.yaml:/etc/prometheus.yaml
-    entrypoint:
-      - /bin/prometheus
-      - --config.file=/etc/prometheus.yaml
     ports:
       - "9991:9090"
     networks:
       - monitoring
       - app-backend
+    entrypoint:
+      - /bin/prometheus
+      - --config.file=/etc/prometheus.yaml
+
+  grafana:
+    image: grafana/grafana:7.5.5
+    volumes:
+      - ./config/grafana/datasources:/etc/grafana/provisioning/datasources
+      - ./config/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./config/grafana/dashboards-definition:/var/lib/grafana/dashboards
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    depends_on:
+      - prometheus
+    ports:
+      - "9990:3000"
+    networks:
+      - monitoring
