@@ -1,0 +1,15 @@
+version: '3.8'
+
+volumes:
+  node-modules:
+    external: true
+
+
+services:
+  install:
+    image: node:${NODE_VERSION:-14.17.0}
+    working_dir: /app
+    volumes:
+      - node-modules:/app/node_modules:rw
+      - ..:/app:rw,cached
+    command: yarn

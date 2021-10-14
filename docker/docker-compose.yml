@@ -1,0 +1,55 @@
+version: '3.8'
+
+networks:
+  app-backend:
+  monitoring:
+
+volumes:
+  node-modules:
+    external: true
+
+services:
+  server-fizzbuzz-api:
+    image: node:${NODE_VERSION:-14.17.0}
+    restart: always
+    working_dir: /app
+    volumes:
+      - node-modules:/app/node_modules:ro
+      - ..:/app:rw,cached
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    networks:
+      - app-backend
+    env_file:
+      - ./server.env
+    command: npx yarn start:dev
+
+  grafana:
+    image: grafana/grafana:7.5.5
+    volumes:
+      - ./config/grafana/datasources:/etc/grafana/provisioning/datasources
+      - ./config/grafana/dashboards:/etc/grafana/provisioning/dashboards
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    ports:
+      - "9990:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:v2.26.0
+    volumes:
+      - ./config/prometheus/prometheus-local.yaml:/etc/prometheus.yaml
+    entrypoint:
+      - /bin/prometheus
+      - --config.file=/etc/prometheus.yaml
+    ports:
+      - "9991:9090"
+    networks:
+      - monitoring
+      - app-backend

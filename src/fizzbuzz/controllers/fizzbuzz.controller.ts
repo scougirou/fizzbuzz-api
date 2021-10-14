@@ -24,7 +24,7 @@ export class FizzbuzzController {
       transformOptions: { enableImplicitConversion: true },
     }),
   )
-  fizzbuzz(@Query() input: FizzbuzzDto): string {
+  async fizzbuzz(@Query() input: FizzbuzzDto): Promise<string> {
     return this.fizzbuzzService.generateFizzbuzz(input);
   }
 }
