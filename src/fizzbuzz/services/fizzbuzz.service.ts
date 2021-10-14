@@ -17,7 +17,7 @@ interface MultiplierInterface {
 export class FizzbuzzService {
   constructor(private readonly statsService: StatisticsService) {}
 
-  async generateFizzbuzz(input2: FizzbuzzDto): Promise<string> {
+  generateFizzbuzz(input2: FizzbuzzDto): string {
     let result = '';
     const input = this.validateInput(input2);
 
