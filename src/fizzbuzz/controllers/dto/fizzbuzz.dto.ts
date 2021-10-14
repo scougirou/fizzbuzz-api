@@ -1,16 +1,18 @@
 import { IsPositive } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-
-export const MAXIMUM_LIMIT = 1000;
-export const DEFAULT_LIMIT = 100;
-export const MINIMUM_INTEGER = 0;
-export const DEFAULT_INTEGER = 0;
+import {
+  DEFAULT_INTEGER_1,
+  DEFAULT_INTEGER_2,
+  DEFAULT_LIMIT,
+  MAXIMUM_LIMIT,
+  MINIMUM_INTEGER,
+} from '../../../config/config';
 
 export class FizzbuzzDto {
   @ApiPropertyOptional({
     description: 'First number to replace',
     minimum: MINIMUM_INTEGER,
-    default: DEFAULT_INTEGER,
+    default: DEFAULT_INTEGER_1,
     example: 3,
   })
   @IsPositive()
@@ -19,7 +21,7 @@ export class FizzbuzzDto {
   @ApiPropertyOptional({
     description: 'Second number to replace',
     minimum: MINIMUM_INTEGER,
-    default: DEFAULT_INTEGER,
+    default: DEFAULT_INTEGER_2,
     example: 5,
   })
   @IsPositive()

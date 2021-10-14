@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { FizzbuzzDto } from '../controllers/dto/fizzbuzz.dto';
+import { StatisticsService } from '../../statistics/services/statistics.service';
 import {
-  DEFAULT_INTEGER,
+  DEFAULT_INTEGER_1,
+  DEFAULT_INTEGER_2,
   DEFAULT_LIMIT,
-  FizzbuzzDto,
+  DEFAULT_REPLACEMENT_1,
+  DEFAULT_REPLACEMENT_2,
   MAXIMUM_LIMIT,
   MINIMUM_INTEGER,
-} from '../controllers/dto/fizzbuzz.dto';
-import { StatisticsService } from '../../statistics/services/statistics.service';
+} from '../../config/config';
 
 interface MultiplierInterface {
   multiplierInteger: number;
@@ -44,17 +47,16 @@ export class FizzbuzzService {
   /**
    * validateInput will normalize the input
    * and replace any parameter the would break the computation by it's default value.
-   * if
    * @param input
    * @private
    */
   private validateInput(input: FizzbuzzDto): FizzbuzzDto {
     const validatedInput: FizzbuzzDto = input;
     if (!input.integer1 || input.integer1 < MINIMUM_INTEGER) {
-      validatedInput.integer1 = DEFAULT_INTEGER;
+      validatedInput.integer1 = DEFAULT_INTEGER_1;
     }
     if (!input.integer2 || input.integer2 < MINIMUM_INTEGER) {
-      validatedInput.integer2 = DEFAULT_INTEGER;
+      validatedInput.integer2 = DEFAULT_INTEGER_2;
     }
     if (
       !input.limit ||
@@ -64,10 +66,10 @@ export class FizzbuzzService {
       validatedInput.limit = DEFAULT_LIMIT;
     }
     if (!input.replacement1) {
-      validatedInput.replacement1 = '';
+      validatedInput.replacement1 = DEFAULT_REPLACEMENT_1;
     }
     if (!input.replacement2) {
-      validatedInput.replacement2 = '';
+      validatedInput.replacement2 = DEFAULT_REPLACEMENT_2;
     }
     return validatedInput;
   }
