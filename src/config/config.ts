@@ -11,3 +11,5 @@ export const DEFAULT_INTEGER_2 =
   parseInt(process.env.DEFAULT_INTEGER_2, 10) || 0;
 export const DEFAULT_REPLACEMENT_1 = process.env.DEFAULT_REPLACEMENT_1 || '';
 export const DEFAULT_REPLACEMENT_2 = process.env.DEFAULT_REPLACEMENT_2 || '';
+
+export const MAX_STAT_COUNT = parseInt(process.env.MAX_STAT_COUNT, 10) || 10;

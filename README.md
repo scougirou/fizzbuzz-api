@@ -54,6 +54,7 @@ All values or optional, default values will be used if the variable is not set.
 | `DEFAULT_INTEGER_2`     	| Default value for the 'integer 2', used by default for integer 2<br>if no value is specified by the user, or in case of a bad value                                                	| `0`           	|
 | `DEFAULT_REPLACEMENT_1` 	| Default value for the 'replacement 1', used by default for remplacement 1<br>if no value is specified by the user, or in case of a bad value                                       	| `''`          	|
 | `DEFAULT_REPLACEMENT_2` 	| Default value for the 'replacement 2', used by default for remplacement 2<br>if no value is specified by the user, or in case of a bad value                                       	| `''`          	|
+| `MAX_STAT_COUNT`      	| Maximum number of tracked usages.<br>The least used one will be scraped if a new request comes in.                                      	| `10`          	|
 
 No `.env` support for the node runtime is done, if a conf change in standalone mode is required, the env variables must be set up in the shell before launching the server.
 Example:
@@ -184,13 +185,14 @@ The CI will run the following tasks:
 - done: ~~Add code coverage report~~
 - done: ~~Add benchmark capabilities~~
 - done: ~~Add monitoring~~
-- Cap stat service size to avoid memory leak
+- done: ~~Cap stat service size to avoid memory leak~~
 - Refact DTO / modules to better stick a pertinent architecture
 - Add load testing capabilities
+- Add `/health` endpoint for k8s readiness probe
 - Add redis as an optional stat service
 - Add selfsigned certificates
 - Add cors whitelist
-- Security: best practise pass
+- Security: best practise pass (remove headers)
 - Add release workflow
 - Deploy
 
@@ -198,6 +200,7 @@ The CI will run the following tasks:
 - Split the fizzbuzz DTO, one for the controller validation, the other to be used in the service / rest of the app.
 - Perf: optimise the fizzbuzz string concatenation
 - Harden input edge-cases, not sure if everything is covered
+- Stat cap: should test the oldest stat removal behavior
 
 ## Considerations / Discussions
 
