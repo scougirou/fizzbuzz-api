@@ -141,6 +141,7 @@ It will install node modules locally and launch the stack via a `docker-compose`
 
 ## Current implementation
 
+### Overview
 This project has been implemented with NestJS, version `8.0.0`.\
 The current implementation is "naive" architecture wise.\
 Controllers are lightweight and only pass on the workload to dedicated services.
@@ -150,6 +151,10 @@ Controllers are lightweight and only pass on the workload to dedicated services.
 A swagger is available on `http://localhost:3000/swagger`.
 
 A Prometheus module has been added to provide monitoring (during the loadtest). 
+
+### 3rd party modules
+ - [NestJS Swagger](https://github.com/nestjs/swagger)
+ - [NestJS Prometheus](https://github.com/willsoto/nestjs-prometheus)
 
 ## CI
 Using Github actions from the marketplace:
