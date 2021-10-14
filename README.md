@@ -33,9 +33,19 @@ All values are optional, they will revert to there default if no value is specif
 | `replacement1` 	| string to be replaced for each number divisible by `integer1`     	| Should be a string            	| `''`          	|
 | `replacement2` 	| string to be replaced for each number divisible by <br>`integer2` 	| Should be a string            	| `''`          	|
 
-Usage example: `http://localhost:3000/fizzbuzz?integer1=3&integer2=5&limit=10&replacement1=fizz&replacement2=buzz`
+Usage example: 
+```shell
+curl "http://localhost:3000/fizzbuzz?integer1=3&integer2=5&limit=15&replacement1=fizz&replacement2=buzz";
+curl "http://localhost:3000/fizzbuzz?integer1=5&integer2=5&limit=20&replacement1=foo&replacement2=bar";
+curl "http://localhost:3000/fizzbuzz?integer1=3&integer2=5&replacement1=fizz&replacement2=buzz";
+curl "http://localhost:3000/fizzbuzz?";
+```
+
+The API is designed for maximum flexibility regarding the user input: it will return a result based on the default config if an input is invalid.\
+It could be argued that the API should return `400 Bad request` if a parameter falls outside the expected value range (and that's easily achievable via decorators.
 
 See configuration for additional info on the default values.
+
 
 ## Configuration
 
@@ -129,25 +139,6 @@ It will install node modules locally and launch the stack via a `docker-compose`
 - Grafana: `http://localhost:9990/`
 - Prometheus: `http://localhost:/9991`
 
-## Stay in touch
-
-- Author - Guillaume GIRARD
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
-## Benchmark
-
-### Performance testing
-Simple `ab` script is available :
-```shell
-./benchmark/ab.sh
-```
-
-### Load testing
-`k6s` script in WIP.
-
 ## Current implementation
 
 This project has been implemented with NestJS, version `8.0.0`.\
@@ -168,6 +159,17 @@ Using Github actions from the marketplace:
 The CI will run the following tasks:
 - Run all tests
 - Production build and push docker image to [docker hub](https://hub.docker.com/repository/docker/scougirou/fizzbuzz)
+
+## Benchmark
+
+### Performance testing
+Simple `ab` script is available :
+```shell
+./benchmark/ab.sh
+```
+
+### Load testing
+`k6s` script in WIP.
 
 
 ## TODO
@@ -190,9 +192,8 @@ The CI will run the following tasks:
 - Add load testing capabilities
 - Add `/health` endpoint for k8s readiness probe
 - Add redis as an optional stat service
-- Add selfsigned certificates
 - Add cors whitelist
-- Security: best practise pass (remove headers)
+- Security: remove headers, run checks
 - Add release workflow
 - Deploy
 
@@ -213,3 +214,13 @@ Validation is duplicated with the Nest validation pipes and in the validation fu
   - Though the business rules are still duplicated
 
 Some naming could be clearer: `integer1` vs `number1`, could be discussed as to what is more explicit to the end user.
+
+## Stay in touch
+
+- Author - Guillaume GIRARD
+
+## License
+
+Nest is [MIT licensed](LICENSE).
+
+

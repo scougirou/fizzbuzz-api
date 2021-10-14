@@ -15,7 +15,7 @@ export class FizzbuzzDto {
     default: DEFAULT_INTEGER_1,
     example: 3,
   })
-  @IsPositive()
+  // @IsPositive()
   integer1: number;
 
   @ApiPropertyOptional({
@@ -24,7 +24,7 @@ export class FizzbuzzDto {
     default: DEFAULT_INTEGER_2,
     example: 5,
   })
-  @IsPositive()
+  // @IsPositive()
   integer2: number;
 
   @ApiPropertyOptional({
@@ -35,7 +35,7 @@ export class FizzbuzzDto {
     default: DEFAULT_LIMIT,
     example: 10,
   })
-  @IsPositive()
+  // @IsPositive()
   limit: number;
 
   @ApiPropertyOptional({
