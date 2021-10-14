@@ -116,6 +116,9 @@ Using Github actions from the marketplace:
 - [Coverage report action](https://github.com/ArtiomTr/jest-coverage-report-action)
 - [Docker build push action](https://github.com/docker/build-push-action)
 
+The CI will run the following tasks:
+- Run all tests
+- Production build and push docker image to [docker hub](https://hub.docker.com/repository/docker/scougirou/fizzbuzz)
 
 
 ## TODO
