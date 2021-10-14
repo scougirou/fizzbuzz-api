@@ -101,7 +101,7 @@ Simple `ab` script is available :
 
 ## Current implementation
 
-This project has been implemented with NestJS, version 8.01.\
+This project has been implemented with NestJS, version `8.0.0`.\
 The current implementation is "naive" architecture wise.\
 Controllers are lightweight and only pass on the workload to dedicated services.
 
