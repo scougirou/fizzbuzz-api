@@ -4,68 +4,72 @@ exports[`StatisticsService should add stats to the stat 1`] = `
 Map {
   "{\\"integer1\\":3,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.643Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
 }
 `;
 
 exports[`StatisticsService should should not log more than 10 stats 1`] = `
 Map {
+  "{\\"integer1\\":0,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
+    "count": 1,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
+  },
   "{\\"integer1\\":1,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":2,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":3,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":4,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":5,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":6,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":7,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":8,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":9,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":10,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":11,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":12,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":13,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.646Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
   "{\\"integer1\\":14,\\"integer2\\":5,\\"limit\\":10,\\"replacement1\\":\\"fizz\\",\\"replacement2\\":\\"buzz\\"}" => Object {
     "count": 1,
-    "lastUsed": 2021-10-18T13:49:17.647Z,
+    "lastUsed": 2021-11-17T23:00:00.000Z,
   },
 }
 `;

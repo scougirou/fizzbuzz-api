@@ -55,6 +55,16 @@ describe('StatisticsService', () => {
     service = module.get<StatisticsServiceWrapper>(StatisticsServiceWrapper);
   });
 
+  beforeAll(() => {
+    // Force date to a specific value: avoid tests crashing on the CI because of that
+    // Used in the logUsage method
+    jest.useFakeTimers('modern');
+    jest.setSystemTime(new Date(2021, 10, 18));
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
