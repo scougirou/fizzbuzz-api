@@ -60,7 +60,7 @@ describe('StatisticsService', () => {
   });
 
   it('should return the most used query', () => {
-    const lastUsed = new Date();
+    const lastUsed = new Date('2021-10-18T10:42:00.410Z');
     const stats = new Map<string, StatCounter>([
       [JSON.stringify(dummyDTO1), { count: 10, lastUsed }],
       [JSON.stringify(dummyDTO2), { count: 100, lastUsed }],
